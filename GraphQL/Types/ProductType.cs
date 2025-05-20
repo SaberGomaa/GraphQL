@@ -7,10 +7,10 @@ namespace GraphQL.GraphQL.Types
     {
         protected override void Configure(IObjectTypeDescriptor<Product> descriptor)
         {
-            descriptor.Field(p => p.ProductId).Type<NonNullType>();
             descriptor.Field(p => p.Name).Type<NonNullType>();
             descriptor.Field(p => p.Price).Type<NonNullType>();
-            descriptor.Field(p => p.Orders).Type<ListType>();
+            descriptor.Field(p => p.isAvilable).Type<NonNullType>();
+            descriptor.Field(p => p.Type).Type<NonNullType>();
         }
     }
 }

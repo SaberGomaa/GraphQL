@@ -5,10 +5,8 @@
         public string ProductId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-
-        // Navigation properties
-        public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
+        public bool isAvilable { get; set; }
+        public bool Type { get; set; }
 
     }
 }

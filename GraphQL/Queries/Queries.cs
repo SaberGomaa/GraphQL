@@ -43,9 +43,7 @@ namespace GraphQL.Queries
         [UseDbContext(typeof(graphQLDbContext))]
         public async Task<Product> GetProductByIdAsync(string productId, [Service] graphQLDbContext context)
         {
-            return await context.Products
-                .Include(p => p.Orders)
-                .ThenInclude(o => o.User)
+            return await context.Products   
                 .FirstOrDefaultAsync(p => p.ProductId == productId)
                 ?? throw new Exception($"Product with ID {productId} not found");
         }
