@@ -3,7 +3,6 @@ using GraphQL.Data;
 using GraphQL.GraphQL.Mutations;
 using GraphQL.GraphQL.Types;
 using GraphQL.Queries;
-using HotChocolate.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 namespace GraphQL
 {
@@ -46,6 +45,7 @@ namespace GraphQL
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
             {
+                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }

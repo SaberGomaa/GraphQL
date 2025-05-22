@@ -3,8 +3,6 @@ using GraphQL.Data;
 using GraphQL.GraphQL.Inputs;
 using GraphQL.Models;
 using Microsoft.EntityFrameworkCore;
-using HotChocolate.Data;
-using HotChocolate;
 namespace GraphQL.GraphQL.Mutations
 {
     public class Mutation
@@ -42,7 +40,9 @@ namespace GraphQL.GraphQL.Mutations
             {
                 ProductId = input.ProductId,
                 Name = input.Name,
-                Price = input.Price
+                Price = input.Price,
+                isAvilable = input.isAvilable,
+                Type = input.Type
             };
             context.Products.Add(product);
             await context.SaveChangesAsync();
@@ -56,7 +56,6 @@ namespace GraphQL.GraphQL.Mutations
                 ?? throw new Exception($"Product with ID {input.ProductId} not found");
 
             product.Name = input.Name;
-            product.Price = input.Price;
             await context.SaveChangesAsync();
             return product;
         }
